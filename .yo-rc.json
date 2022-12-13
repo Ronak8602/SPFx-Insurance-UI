@@ -1,0 +1,21 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "19.1.0",
+    "sdksVersions": {
+      "@microsoft/microsoft-graph-client": "3.0.2",
+      "@microsoft/teams-js": "2.4.1"
+    },
+    "version": "1.16.0",
+    "libraryName": "insurance-ui",
+    "libraryId": "a68e782a-4e41-4739-a4fe-d291555abdb6",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionName": "insurance-ui",
+    "solutionShortDescription": "insurance-ui description",
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}
