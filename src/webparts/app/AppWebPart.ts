@@ -3,7 +3,8 @@ import * as ReactDom from 'react-dom';
 import { Version } from '@microsoft/sp-core-library';
 import {
   IPropertyPaneConfiguration,
-  PropertyPaneTextField
+  PropertyPaneTextField,
+  PropertyPaneToggle
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
 import { IReadonlyTheme } from '@microsoft/sp-component-base';
@@ -15,6 +16,8 @@ import App from './components/App';
 
 export interface IAppWebPartProps {
   description: string;
+  profile: string;
+  visible: boolean;
 }
 
 export default class AppWebPart extends BaseClientSideWebPart<IAppWebPartProps> {
@@ -24,7 +27,10 @@ export default class AppWebPart extends BaseClientSideWebPart<IAppWebPartProps> 
 
   public render(): void {
     const element: React.ReactElement = React.createElement(
-      App
+      App, {
+      name: this.properties.profile,
+      visible: this.properties.visible
+    }
     );
 
     ReactDom.render(element, this.domElement);
@@ -102,7 +108,21 @@ export default class AppWebPart extends BaseClientSideWebPart<IAppWebPartProps> 
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
-                })
+                }),
+                PropertyPaneTextField('profile', {
+                  label: "Your Name",
+                  multiline: false,
+                  resizable: false,
+                  description: "Header Profile Name Field"
+                }),
+                PropertyPaneToggle(
+                  'visible', {
+                  label: "Visible",
+                  onText: "The webpart is now visible",
+                  offText: "Turn on to make webpart visible"
+                }
+                )
+
               ]
             }
           ]

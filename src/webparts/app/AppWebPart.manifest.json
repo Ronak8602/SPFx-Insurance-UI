@@ -18,11 +18,13 @@
   "preconfiguredEntries": [{
     "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Advanced
     "group": { "default": "Advanced" },
-    "title": { "default": "App" },
+    "title": { "default": "Insurance UI" },
     "description": { "default": "App description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "App"
+      "description": "App",
+      "profile" : "John Samuel",
+      "visible" : true
     }
   }]
 }

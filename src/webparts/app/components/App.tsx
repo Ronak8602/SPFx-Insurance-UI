@@ -46,18 +46,23 @@ import Header from "./HeaderComponent/Header";
 import LeftSideBar from "./LeftSideBar/LeftSideBar";
 import Content from "./CenterContent/Content";
 import RightSideBar from "./RightSideBar/RightSideBar";
+import { IAppProps } from "./IAppProps";
 
-export default class App extends React.Component {
-  public render() {
-    return (
+export default class App extends React.Component<IAppProps, {}> {
+  public render(): React.ReactElement<IAppProps> {
+    const { name, visible } = this.props;
+
+    return visible === true ? (
       <div>
-        <Header />
+        <Header name={name} />
         <div className={styles.box}>
           <LeftSideBar />
           <Content />
           <RightSideBar />
         </div>
       </div>
+    ) : (
+      <div>The webpart is hidden</div>
     );
   }
 }
